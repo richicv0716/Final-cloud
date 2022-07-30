@@ -1,0 +1,32 @@
+
+server:
+  port: 9054
+  servlet:
+    context-path: /poli/v1
+spring:
+  application:
+    name: service-movie
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:userBD;
+    driver-class-name: org.h2.Driver
+    platform: h2
+    username: sa
+    password:
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+      health:
+        show-details: always
+  boot:
+    admin:
+      client:
+        url: http://localhost:9020
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
